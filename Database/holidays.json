@@ -1,0 +1,22 @@
+[
+  { "destination": "Paris",     "startAt": { "$date": "2026-10-12T00:00:00.000Z" }, "finishAt": { "$date": "2026-10-19T00:00:00.000Z" }, "price": 1450 },
+  { "destination": "Rome",      "startAt": { "$date": "2026-10-20T00:00:00.000Z" }, "finishAt": { "$date": "2026-10-27T00:00:00.000Z" }, "price": 1320 },
+  { "destination": "Barcelona", "startAt": { "$date": "2026-11-03T00:00:00.000Z" }, "finishAt": { "$date": "2026-11-10T00:00:00.000Z" }, "price": 1275 },
+  { "destination": "Amsterdam", "startAt": { "$date": "2026-11-14T00:00:00.000Z" }, "finishAt": { "$date": "2026-11-20T00:00:00.000Z" }, "price": 1180 },
+  { "destination": "Lisbon",    "startAt": { "$date": "2026-11-22T00:00:00.000Z" }, "finishAt": { "$date": "2026-11-29T00:00:00.000Z" }, "price": 1095 },
+  { "destination": "Prague",    "startAt": { "$date": "2026-12-05T00:00:00.000Z" }, "finishAt": { "$date": "2026-12-12T00:00:00.000Z" }, "price": 980 },
+  { "destination": "Vienna",    "startAt": { "$date": "2026-12-18T00:00:00.000Z" }, "finishAt": { "$date": "2026-12-26T00:00:00.000Z" }, "price": 1560 },
+  { "destination": "Budapest",  "startAt": { "$date": "2027-01-08T00:00:00.000Z" }, "finishAt": { "$date": "2027-01-15T00:00:00.000Z" }, "price": 890 },
+  { "destination": "Reykjavik", "startAt": { "$date": "2027-01-20T00:00:00.000Z" }, "finishAt": { "$date": "2027-01-27T00:00:00.000Z" }, "price": 2340 },
+  { "destination": "Marrakesh", "startAt": { "$date": "2027-02-02T00:00:00.000Z" }, "finishAt": { "$date": "2027-02-09T00:00:00.000Z" }, "price": 1420 },
+  { "destination": "Zanzibar",  "startAt": { "$date": "2027-02-14T00:00:00.000Z" }, "finishAt": { "$date": "2027-02-24T00:00:00.000Z" }, "price": 2780 },
+  { "destination": "Maldives",  "startAt": { "$date": "2027-03-01T00:00:00.000Z" }, "finishAt": { "$date": "2027-03-10T00:00:00.000Z" }, "price": 4650 },
+  { "destination": "Bali",      "startAt": { "$date": "2027-03-15T00:00:00.000Z" }, "finishAt": { "$date": "2027-03-26T00:00:00.000Z" }, "price": 3180 },
+  { "destination": "Bangkok",   "startAt": { "$date": "2027-04-02T00:00:00.000Z" }, "finishAt": { "$date": "2027-04-11T00:00:00.000Z" }, "price": 2450 },
+  { "destination": "Singapore", "startAt": { "$date": "2027-04-16T00:00:00.000Z" }, "finishAt": { "$date": "2027-04-23T00:00:00.000Z" }, "price": 2890 },
+  { "destination": "Tokyo",     "startAt": { "$date": "2027-05-04T00:00:00.000Z" }, "finishAt": { "$date": "2027-05-14T00:00:00.000Z" }, "price": 3950 },
+  { "destination": "Kyoto",     "startAt": { "$date": "2027-05-18T00:00:00.000Z" }, "finishAt": { "$date": "2027-05-26T00:00:00.000Z" }, "price": 3620 },
+  { "destination": "Santorini", "startAt": { "$date": "2027-06-05T00:00:00.000Z" }, "finishAt": { "$date": "2027-06-12T00:00:00.000Z" }, "price": 1980 },
+  { "destination": "Dubrovnik", "startAt": { "$date": "2027-06-20T00:00:00.000Z" }, "finishAt": { "$date": "2027-06-27T00:00:00.000Z" }, "price": 1740 },
+  { "destination": "Sydney",    "startAt": { "$date": "2027-07-10T00:00:00.000Z" }, "finishAt": { "$date": "2027-07-22T00:00:00.000Z" }, "price": 4380 }
+]

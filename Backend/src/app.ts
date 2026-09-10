@@ -8,6 +8,7 @@ import { errorMiddleware } from "./middleware/error-middleware";
 import { securityMiddleware } from "./middleware/security-middleware";
 import { appConfig } from "./utils/app-config";
 import mongoose from "mongoose";
+import { holidayController } from "./controllers/holiday-controller";
 
 class App {
 
@@ -33,6 +34,7 @@ class App {
 
         // Register controllers:
         server.use(userController.router);
+        server.use(holidayController.router);
 
         // Register "after" middleware:
         server.use(errorMiddleware.routeNotFound);
