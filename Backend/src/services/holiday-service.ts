@@ -22,6 +22,27 @@ class HolidayService {
 
     }
 
+    public async like(userId: string, holidayId: string): Promise<void> {
+
+        const holidayToLike = await HolidayModel.findByIdAndUpdate(holidayId,
+            { $addToSet: { likes: userId } },
+            { returnDocument: "after" }
+        ).exec();
+
+        if (!holidayToLike) throw new ClientError(StatusCode.NotFound, "The holiday you are trying to like does not exist.");
+
+    }
+
+     public async unLike(userId: string, holidayId: string): Promise<void> {
+
+        const holidayToLike = await HolidayModel.findByIdAndUpdate(holidayId,
+            { $pull: { likes: userId } },
+            { returnDocument: "after" }
+        ).exec();
+
+        if (!holidayToLike) throw new ClientError(StatusCode.NotFound, "The holiday you are trying to like does not exist.");
+
+    }
 
 
 }

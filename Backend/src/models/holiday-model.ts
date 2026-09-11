@@ -10,6 +10,7 @@ export interface IHolidayModel extends Document {
     finishAt: Date;
     price: number,
     fileName: string,
+    likes: Types.ObjectId[];
 }
 
 export const HolidaySchema = new Schema<IHolidayModel>({
@@ -29,7 +30,7 @@ export const HolidaySchema = new Schema<IHolidayModel>({
         type: Date,
         required: [true, " You must choose a ending date for the holiday."],
         validate: {
-            validator: function (value: Date){
+            validator: function (value: Date) {
                 const doc = this as unknown as IHolidayModel;
                 return value > doc.startAt
             },
@@ -40,8 +41,13 @@ export const HolidaySchema = new Schema<IHolidayModel>({
     price: {
         type: Number,
         required: [true, "Holiday must be priced."],
-        min: [0 , "Price cannot be lower than 0."],
-        max: [99999,"Price cannot be higher than 99,999"],
+        min: [0, "Price cannot be lower than 0."],
+        max: [99999, "Price cannot be higher than 99,999"],
+    },
+    likes: {
+        type: [Schema.Types.ObjectId],
+        ref: "UserModel",
+        default: [],
     }
 }, {
     versionKey: false,

@@ -2,6 +2,7 @@
 import { Document, model, Schema, Types } from "mongoose";
 import { Role } from "./enums";
 import { security } from "../utils/security";
+import { Request } from "express";
 
 export interface IUserModel extends Document {
 
@@ -70,7 +71,11 @@ UserSchema.pre("save", async function () {
 
 export const UserModel = model<IUserModel>("UserModel", UserSchema, "users");
 
+// Credentials.
 export type CredentialsModel = {
     email: string;
     password: string;
 }
+
+// User request type , used only when you need some of the users properties.
+export type AuthRequest = Request & { user: IUserModel };

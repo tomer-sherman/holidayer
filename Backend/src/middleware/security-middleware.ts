@@ -5,6 +5,9 @@ import striptags from "striptags";
 import { ClientError } from "error-color-logger";
 import { StatusCode } from "error-color-logger";
 import { security } from "../utils/security";
+import jwt from "jsonwebtoken";
+import { AuthRequest, IUserModel } from "../models/user-model";
+;
 
 class SecurityMiddleware {
 
@@ -15,6 +18,9 @@ class SecurityMiddleware {
         const token = auth?.substring(7);
 
         if (security.verifyJwtToken(token!)) {
+            const payload = jwt.decode(token!) as { user: IUserModel };
+
+            (request as AuthRequest).user = payload.user;
             next();
         }
         else {
