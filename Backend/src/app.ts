@@ -9,6 +9,7 @@ import { securityMiddleware } from "./middleware/security-middleware";
 import { appConfig } from "./utils/app-config";
 import mongoose from "mongoose";
 import { holidayController } from "./controllers/holiday-controller";
+import { holidayAdminControllertroller } from "./controllers/holiday-admin-service";
 
 class App {
 
@@ -35,6 +36,7 @@ class App {
         // Register controllers:
         server.use(userController.router);
         server.use(holidayController.router);
+        server.use(holidayAdminControllertroller.router);
 
         // Register "after" middleware:
         server.use(errorMiddleware.routeNotFound);
