@@ -10,6 +10,9 @@ import { appConfig } from "./utils/app-config";
 import mongoose from "mongoose";
 import { holidayController } from "./controllers/holiday-controller";
 import { holidayAdminControllertroller } from "./controllers/holiday-admin-service";
+import { holidayMcpServer } from "./mcp/mcp-server";
+import { aiController } from "./controllers/ai-controller";
+import { sseHandlers } from "express-mcp-handler";
 
 class App {
 
@@ -24,6 +27,11 @@ class App {
         // Create our server object:
         const server = express();
 
+        //Connect mcp:
+        const mspController = sseHandlers(() => holidayMcpServer.create(), {});
+        server.get("/sse", mspController.getHandler);
+        server.post("/messages", express.json(), mspController.postHandler);
+
         // System middleware:
         securityMiddleware.registerRateLimit(server);
         securityMiddleware.headerProtection(server);
@@ -37,6 +45,9 @@ class App {
         server.use(userController.router);
         server.use(holidayController.router);
         server.use(holidayAdminControllertroller.router);
+        server.use(aiController.router);
+
+
 
         // Register "after" middleware:
         server.use(errorMiddleware.routeNotFound);

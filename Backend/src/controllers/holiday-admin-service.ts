@@ -14,10 +14,9 @@ class HolidayAdminControllertroller {
 
     public constructor() {
         this.router.post("/api/holidays", securityMiddleware.verifyAdminn, this.addHoliday);
+        this.router.get("/api/holidays/likes", this.getAllHolidayLikes);
         this.router.delete("/api/holidays/:_id", securityMiddleware.verifyAdminn, this.deleteHoliday);
         this.router.put("/api/holidays/:_id", securityMiddleware.verifyAdminn, this.deleteHoliday);
-
-
 
 
     }
@@ -47,6 +46,15 @@ class HolidayAdminControllertroller {
         await holidayAdminService.deleteHoliday(_id);
 
         response.status(StatusCode.NoContent).json();
+
+    }
+
+    public async getAllHolidayLikes(request: Request, response: Response): Promise<void> {
+
+        const holidaysWithLikes = await holidayAdminService.getAllHolidayLikes();
+
+        response.json(holidaysWithLikes);
+
 
     }
 

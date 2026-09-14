@@ -20,6 +20,9 @@ class AppConfig {
     public readonly hashSalt = process.env.HASH_SALT!;
     public readonly recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY!;
 
+
+    // Keys
+    public readonly openaiApiKey = process.env.OPENAI_API_KEY!;
 }
 
 export const appConfig = new AppConfig();

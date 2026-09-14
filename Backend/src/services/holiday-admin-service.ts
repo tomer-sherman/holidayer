@@ -24,6 +24,16 @@ class HolidayAdminService {
 
     }
 
+    public async getAllHolidayLikes(): Promise<string[]> {
+
+        const dbHolidays = await HolidayModel.aggregate<string>([
+            { $project: { destination: 1, likesCount: { $size: "$likes" } } }
+        ])
+
+        return dbHolidays;
+
+    }
+
 
 }
 
