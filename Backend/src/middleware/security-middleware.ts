@@ -75,7 +75,7 @@ class SecurityMiddleware {
         // General rate-limit:
         server.use(expressRateLimit({
             windowMs: 1000, // Time window in milliseconds.
-            limit: 5, // How many requests allowed in that window.
+            limit: 10, // How many requests allowed in that window.
             skip: (request) => request.path === "/mcp", // One MCP handshake (initialize, initialized, tools/list, tools/call...) is several requests in under a second.
         }));
 

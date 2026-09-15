@@ -12,7 +12,7 @@ class AiService {
     public async getMcpCompletion(prompt: string): Promise<string> {
 
         const response = await this.openai.responses.create({
-            model: "gpt-4o-mini",
+            model: "gpt-5",
             input: prompt,
 
             tools: [{

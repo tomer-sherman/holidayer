@@ -14,9 +14,9 @@ class HolidayAdminControllertroller {
 
     public constructor() {
         this.router.post("/api/holidays", securityMiddleware.verifyAdminn, this.addHoliday);
-        this.router.get("/api/holidays/likes", this.getAllHolidayLikes);
+        this.router.get("/api/admin/likes", securityMiddleware.verifyAdminn, this.getAllHolidayLikes);
+        this.router.put("/api/holidays/:_id", securityMiddleware.verifyAdminn, this.updateHoliday);
         this.router.delete("/api/holidays/:_id", securityMiddleware.verifyAdminn, this.deleteHoliday);
-        this.router.put("/api/holidays/:_id", securityMiddleware.verifyAdminn, this.deleteHoliday);
 
 
     }
