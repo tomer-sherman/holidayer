@@ -1,6 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 import { appConfig } from "../utils/app-config";
 import { ClientError, errorColorLogger, StatusCode } from "error-color-logger";
+import { mongoErrorLogger } from "../utils/Errors/mongo-error-logger";
+import mongoose from "mongoose";
+import { any } from "zod";
+import { logError } from "../utils/Errors/error-log";
 
 
 class ErrorMiddleware {
@@ -24,7 +28,7 @@ class ErrorMiddleware {
         const message = isServerError && appConfig.isProduction ? "Some error, please try again." : err.message;
 
         // Console message: 
-        err instanceof ClientError ? errorColorLogger.logError(err) : console.log(err);
+        logError(err);
 
         // Log errors in database:
         // ...
