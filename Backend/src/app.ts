@@ -50,7 +50,7 @@ class App {
 
 
         // Register "after" middleware:
-        server.use(errorMiddleware.routeNotFound);
+        server.use(errorMiddleware.routeNotFound)
         server.use(errorMiddleware.catchAll);
 
         // Run server:

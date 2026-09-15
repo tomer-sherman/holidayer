@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { appConfig } from "../utils/app-config";
 import { ClientError, errorColorLogger, StatusCode } from "error-color-logger";
 
+
 class ErrorMiddleware {
 
     // Route Not Found Middleware:
@@ -23,7 +24,7 @@ class ErrorMiddleware {
         const message = isServerError && appConfig.isProduction ? "Some error, please try again." : err.message;
 
         // Console message: 
-        err === ClientError ? errorColorLogger.logError(err) : console.log(err);
+        err instanceof ClientError ? errorColorLogger.logError(err) : console.log(err);
 
         // Log errors in database:
         // ...
