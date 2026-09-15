@@ -2,7 +2,7 @@ import { Document, model, Schema, Types } from "mongoose";
 
 
 
-export interface IHolidayModel extends Document {
+export interface IVacationModel extends Document {
 
     _id: Types.ObjectId;
     destination: string,
@@ -13,7 +13,7 @@ export interface IHolidayModel extends Document {
     likes: Types.ObjectId[];
 }
 
-export const HolidaySchema = new Schema<IHolidayModel>({
+export const VacationSchema = new Schema<IVacationModel>({
 
     destination: {
         type: String,
@@ -22,16 +22,16 @@ export const HolidaySchema = new Schema<IHolidayModel>({
     },
     startAt: {
         type: Date,
-        required: [true, "You must choose a starting date for the holiday."],
+        required: [true, "You must choose a starting date for the vacation."],
 
 
     },
     finishAt: {
         type: Date,
-        required: [true, " You must choose a ending date for the holiday."],
+        required: [true, " You must choose a ending date for the vacation."],
         validate: {
             validator: function (value: Date) {
-                const doc = this as unknown as IHolidayModel;
+                const doc = this as unknown as IVacationModel;
                 return value > doc.startAt
             },
             message: "End date must be after the start date.",
@@ -40,7 +40,7 @@ export const HolidaySchema = new Schema<IHolidayModel>({
     },
     price: {
         type: Number,
-        required: [true, "Holiday must be priced."],
+        required: [true, "Vacation must be priced."],
         min: [0, "Price cannot be lower than 0."],
         max: [99999, "Price cannot be higher than 99,999"],
     },
@@ -54,4 +54,4 @@ export const HolidaySchema = new Schema<IHolidayModel>({
     id: false
 })
 
-export const HolidayModel = model<IHolidayModel>("HolidayModel", HolidaySchema, "holidays");
+export const VacationModel = model<IVacationModel>("VacationModel", VacationSchema, "holidays");

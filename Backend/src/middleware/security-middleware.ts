@@ -33,7 +33,7 @@ class SecurityMiddleware {
     }
 
 
-    public verifyAdminn(request: Request, response: Response, next: NextFunction): void {
+    public verifyAdmin(request: Request, response: Response, next: NextFunction): void {
 
         const auth = request.headers.authorization;
         const token = auth?.substring(7);

@@ -1,15 +1,15 @@
 import { CallToolResult } from "@modelcontextprotocol/sdk/types";
-import { holidayService } from "../services/holiday-service";
+import { vacationService } from "../services/vacation-service";
 
 class McpTools {
 
-    public async getAllHolidayTool(): Promise<CallToolResult> {
+    public async getAllVacationTool(): Promise<CallToolResult> {
 
-        const holidays = await holidayService.getAllHolidays();
+        const vacations = await vacationService.getAllVacations();
         const result: CallToolResult = {
             content: [{
                 type: "text",
-                text: JSON.stringify(holidays)
+                text: JSON.stringify(vacations)
             }]
         }
 
@@ -18,12 +18,12 @@ class McpTools {
 
     }
 
-    public async getOneHoliday(args: { _id: string }): Promise<CallToolResult> {
-        const holiday = await holidayService.getOneHoliday(args._id);
+    public async getOneVacation(args: { _id: string }): Promise<CallToolResult> {
+        const vacation = await vacationService.getOneVacation(args._id);
         const result: CallToolResult = {
             content: [{
                 type: "text",
-                text: JSON.stringify(holiday)
+                text: JSON.stringify(vacation)
             }]
         }
 

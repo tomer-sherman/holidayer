@@ -8,9 +8,9 @@ import { errorMiddleware } from "./middleware/error-middleware";
 import { securityMiddleware } from "./middleware/security-middleware";
 import { appConfig } from "./utils/app-config";
 import mongoose from "mongoose";
-import { holidayController } from "./controllers/holiday-controller";
-import { holidayAdminControllertroller } from "./controllers/holiday-admin-service";
-import { holidayMcpServer } from "./mcp/mcp-server";
+import { vacationController } from "./controllers/vacation-controller";
+import { vacationAdminController} from "./controllers/vacation-admin-service";
+import { vacationMcpServer } from "./mcp/mcp-server";
 import { aiController } from "./controllers/ai-controller";
 import { sseHandlers } from "express-mcp-handler";
 
@@ -28,7 +28,7 @@ class App {
         const server = express();
 
         //Connect mcp:
-        const mspController = sseHandlers(() => holidayMcpServer.create(), {});
+        const mspController = sseHandlers(() => vacationMcpServer.create(), {});
         server.get("/sse", mspController.getHandler);
         server.post("/messages", express.json(), mspController.postHandler);
 
@@ -43,8 +43,8 @@ class App {
 
         // Register controllers:
         server.use(userController.router);
-        server.use(holidayController.router);
-        server.use(holidayAdminControllertroller.router);
+        server.use(vacationController.router);
+        server.use(vacationAdminController.router);
         server.use(aiController.router);
 
 
@@ -62,4 +62,4 @@ class App {
 const app = new App();
 app.start();
 
-// taskkill /F /IM node.exe
+

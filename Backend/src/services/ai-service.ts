@@ -17,8 +17,8 @@ class AiService {
 
             tools: [{
                 type: "mcp",
-                server_label: "holiday-mcp-server",
-                server_description: "A mcp server that externelizes a list of holidays.",
+                server_label: "vacation-mcp-server",
+                server_description: "A mcp server that externelizes a list of vacations.",
                 server_url: "https://timothy-sulfate-hatbox.ngrok-free.dev/sse",
                 require_approval: "never",
             }]
@@ -30,7 +30,7 @@ class AiService {
     }
 
 
-    public async getAiRecomendation(userPrompt: string): Promise<string> {
+    public async getAiRecommendation(userPrompt: string): Promise<string> {
 
 
         const promptToSend =

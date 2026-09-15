@@ -15,7 +15,7 @@ class UserController {
     public constructor() {
         this.router.post("/api/register", this.register);
         this.router.post("/api/login", this.login);
-        this.router.get("/api/auth/test" , securityMiddleware.verifyAdminn, this.test);
+        this.router.get("/api/auth/test" , securityMiddleware.verifyAdmin, this.test);
     }
 
     // Get register user

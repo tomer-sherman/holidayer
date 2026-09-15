@@ -4,25 +4,25 @@ import z from "zod";
 
 class McpRegister {
 
-    public registerGetAllHolidays(mcpServer: McpServer): void {
+    public registerGetAllVacations(mcpServer: McpServer): void {
         console.log("Using get all tool.")!
-        const name = "get_all_holidays";
+        const name = "get_all_vacations";
         const config = {
-            description: "Get all data base holidays."
+            description: "Get all data base vacations."
         }
 
-        mcpServer.registerTool(name, config, mcpTools.getAllHolidayTool);
+        mcpServer.registerTool(name, config, mcpTools.getAllVacationTool);
     }
 
-    public registerGetOneHoliday(mcpServer: McpServer): void {
+    public registerGetOneVacation(mcpServer: McpServer): void {
         console.log("Using get one tool!")
-        const name = "get_one_holiday";
+        const name = "get_one_vacation";
         const config = {
-            description: "Get one holiday data by id.",
+            description: "Get one vacation data by id.",
             inputSchema: z.object({ _id: z.string() })
         }
 
-        mcpServer.registerTool(name, config, mcpTools.getOneHoliday)
+        mcpServer.registerTool(name, config, mcpTools.getOneVacation)
     }
 
 

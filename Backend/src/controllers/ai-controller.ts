@@ -1,7 +1,7 @@
 import express, { Request, Response, Router } from "express";
 import { aiService } from "../services/ai-service";
-import { security } from "../utils/security";
 import { securityMiddleware } from "../middleware/security-middleware";
+
 
 
 
@@ -12,8 +12,8 @@ class AiController {
 
     // Constructor - register routes:
     public constructor() {
-        this.router.post("/api/mcp/ask", this.getMcpCompletion);
-        this.router.post("/api/ai/recomendation", this.getAiRecomendation);
+        this.router.post("/api/mcp/ask", securityMiddleware.verifyLogin, this.getMcpCompletion);
+        this.router.post("/api/ai/recommendation", securityMiddleware.verifyLogin, this.getAiRecommendation);
 
     }
 
@@ -27,12 +27,12 @@ class AiController {
 
 
     }
-    private async getAiRecomendation(request: Request, response: Response): Promise<void> {
+    private async getAiRecommendation(request: Request, response: Response): Promise<void> {
 
         const userPrompt = request.body.userPrompt as string;
-        const recomendation = await aiService.getAiRecomendation(userPrompt);
+        const recommendation = await aiService.getAiRecommendation(userPrompt);
 
-        response.json(recomendation);
+        response.json(recommendation);
     }
 
 

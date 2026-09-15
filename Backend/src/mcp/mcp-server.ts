@@ -1,18 +1,18 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp";
 import { mcpRegister } from "./mcp-register";
 
-class HolidayMcpServer {
+class VacationMcpServer {
 
     public create(): McpServer {
 
         const mcpServer = new McpServer({
-            name: "holiday-mcp-server",
+            name: "vacation-mcp-server",
             version: "1.0.0"
         });
 
         //register Tools:
-        mcpRegister.registerGetAllHolidays(mcpServer);
-        mcpRegister.registerGetOneHoliday(mcpServer);
+        mcpRegister.registerGetAllVacations(mcpServer);
+        mcpRegister.registerGetOneVacation(mcpServer);
 
         return mcpServer;
 
@@ -20,4 +20,4 @@ class HolidayMcpServer {
 
 }
 
-export const holidayMcpServer = new HolidayMcpServer();
+export const vacationMcpServer = new VacationMcpServer();
