@@ -1,0 +1,57 @@
+/* ============================================================================
+   Menu — main navigation (NavLink adds class "active" on the current route)
+   ============================================================================ */
+
+.Menu {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.Menu a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    padding: 0.5rem 0.875rem;
+    border-radius: var(--radius);
+    color: var(--text-muted);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+    transition:
+        color var(--fast) var(--ease),
+        background-color var(--fast) var(--ease);
+}
+
+/* Route-style prefix: "/Home" */
+.Menu a::before {
+    content: "/";
+    font-family: var(--font-mono);
+    color: var(--text-faint);
+    transition: color var(--fast) var(--ease);
+}
+
+.Menu a:hover {
+    color: var(--text);
+    background: var(--surface-2);
+}
+
+.Menu a:hover::before {
+    color: var(--text-muted);
+}
+
+.Menu a.active {
+    color: var(--primary-text);
+    background: var(--primary-soft);
+}
+
+.Menu a.active::before {
+    color: var(--accent);
+}
+
+.Menu a:focus-visible {
+    outline: none;
+    box-shadow: var(--ring);
+}

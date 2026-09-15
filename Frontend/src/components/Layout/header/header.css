@@ -1,0 +1,58 @@
+/* ============================================================================
+   Header — brand block (logo mark + gradient title + DEV tag)
+   ============================================================================ */
+
+.Header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Logo mark (pure CSS) */
+.Header::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+        0 4px 14px rgba(139, 92, 246, 0.4);
+}
+
+/* Title */
+.Header h1 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    white-space: nowrap;
+    background: linear-gradient(90deg, #ffffff 0%, var(--primary-text) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Environment tag — remove this rule for production */
+.Header::after {
+    content: "DEV";
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    padding: 0.3rem 0.45rem;
+    border-radius: var(--radius-full);
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid rgba(45, 212, 191, 0.35);
+}
+
+[data-theme="light"] .Header h1 {
+    background: linear-gradient(90deg, #0f172a 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}

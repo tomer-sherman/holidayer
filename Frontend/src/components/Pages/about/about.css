@@ -1,0 +1,30 @@
+/* ============================================================================
+   About page
+   ----------------------------------------------------------------------------
+   Readable single-column layout for long-form text.
+   ============================================================================ */
+
+.About {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 72ch;
+}
+
+.About h2 {
+    margin-bottom: 0.25rem;
+}
+
+.About h3 {
+    margin-top: 1rem;
+}
+
+.About p {
+    color: var(--text-muted);
+    line-height: 1.75;
+}
+
+/* The scaffold placeholder should still span the full content width */
+.About > p:only-child {
+    max-width: none;
+}

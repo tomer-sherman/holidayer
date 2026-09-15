@@ -1,0 +1,40 @@
+/* ============================================================================
+   Home page
+   ----------------------------------------------------------------------------
+   The placeholder <p> is styled globally (index.css -> main > div > p:only-child)
+   and disappears once you add real content. Build your sections below.
+   ============================================================================ */
+
+.Home {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Hero block: <section class="hero"> ... </section> */
+.Home .hero {
+    padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 4vw, 3rem);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    background:
+        radial-gradient(60% 80% at 100% 0%, var(--primary-soft), transparent 60%),
+        var(--surface);
+}
+
+.Home .hero h2 {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    margin-bottom: 0.75rem;
+}
+
+.Home .hero p {
+    max-width: 60ch;
+    color: var(--text-muted);
+    font-size: 1.0625rem;
+}
+
+.Home .hero .actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}

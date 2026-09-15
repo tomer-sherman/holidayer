@@ -1,0 +1,30 @@
+/* ============================================================================
+   Copyrights — footer content
+   ============================================================================ */
+
+.Copyrights {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding: 1.25rem var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.Copyrights p {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--text-faint);
+}
+
+/* Right-side tech tag */
+.Copyrights::after {
+    content: "React · Vite · TypeScript";
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    color: var(--text-faint);
+}

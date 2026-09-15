@@ -10,7 +10,7 @@ class VacationAdminController {
     public router: Router = express.Router();
 
     public constructor() {
-        this.router.post("/api/vacations", this.addVacation);
+        this.router.post("/api/vacations", securityMiddleware.verifyAdmin, this.addVacation);
         this.router.get("/api/admin/likes", securityMiddleware.verifyAdmin, this.getAllVacationLikes);
         this.router.put("/api/vacations/:_id", securityMiddleware.verifyAdmin, this.updateVacation);
         this.router.delete("/api/vacations/:_id", securityMiddleware.verifyAdmin, this.deleteVacation);

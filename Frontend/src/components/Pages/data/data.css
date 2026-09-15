@@ -1,0 +1,72 @@
+/* ============================================================================
+   Data page
+   ----------------------------------------------------------------------------
+   Layout for lists / tables / cards of records. Pairs with the global
+   .grid, .card, .badge and table styles from index.css.
+   ============================================================================ */
+
+.Data {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Toolbar above a list: search on the left, actions on the right */
+.Data .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.Data .toolbar input {
+    max-width: 320px;
+}
+
+/* Record cards: <div class="list"><div class="card">...</div></div> */
+.Data .list {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+}
+
+.Data .list .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition:
+        transform var(--normal) var(--ease),
+        box-shadow var(--normal) var(--ease),
+        border-color var(--normal) var(--ease);
+}
+
+.Data .list .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow);
+}
+
+.Data .list .card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: var(--radius);
+    background: var(--surface-2);
+}
+
+/* Meta row inside a card: dates, price, likes */
+.Data .list .card .meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.Data .list .card .price {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--accent);
+}

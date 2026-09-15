@@ -1,0 +1,96 @@
+/* ============================================================================
+   Layout — app shell
+   ----------------------------------------------------------------------------
+   Grid areas:
+       header | nav       <- one sticky top bar (brand left, links right)
+       main   | main      <- centered content column
+       footer | footer
+   ============================================================================ */
+
+.Layout {
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: var(--nav-height) 1fr auto;
+    grid-template-areas:
+        "header nav"
+        "main   main"
+        "footer footer";
+}
+
+.Layout > header { grid-area: header; }
+.Layout > nav    { grid-area: nav; }
+.Layout > main   { grid-area: main; }
+.Layout > footer { grid-area: footer; }
+
+/* Top bar: header + nav share the same sticky strip */
+.Layout > header,
+.Layout > nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    background: var(--bg-elevated);
+    background: color-mix(in srgb, var(--bg-elevated) 82%, transparent);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    backdrop-filter: blur(14px) saturate(160%);
+    border-bottom: 1px solid var(--border);
+}
+
+.Layout > header {
+    padding-left: var(--gutter);
+    padding-right: 1.5rem;
+}
+
+.Layout > nav {
+    justify-content: flex-end;
+    padding-right: var(--gutter);
+}
+
+/* Content column */
+.Layout > main {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding: clamp(1.5rem, 4vw, 3rem) var(--gutter);
+}
+
+/* Footer */
+.Layout > footer {
+    border-top: 1px solid var(--border);
+    background: var(--bg-elevated);
+}
+
+/* ---- Mobile: stack the bar, nav scrolls horizontally --------------------- */
+@media (max-width: 720px) {
+    .Layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "footer";
+    }
+
+    .Layout > header {
+        position: static;
+        height: auto;
+        padding: 0.875rem var(--gutter);
+        border-bottom: 0;
+    }
+
+    .Layout > nav {
+        height: auto;
+        justify-content: flex-start;
+        padding: 0.5rem var(--gutter);
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .Layout > nav::-webkit-scrollbar {
+        display: none;
+    }
+}

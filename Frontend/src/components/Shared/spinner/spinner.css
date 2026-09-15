@@ -1,0 +1,24 @@
+/* ============================================================================
+   Spinner — loading indicator
+   ----------------------------------------------------------------------------
+   The GIF has a white background, so it is presented as a rounded white tile
+   with a soft glow. Centered inline in whatever container renders it.
+   ============================================================================ */
+
+.Spinner {
+    display: grid;
+    place-items: center;
+    padding: 3rem 1rem;
+    animation: fade-in var(--normal) var(--ease) both;
+}
+
+.Spinner img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow:
+        0 0 0 1px var(--border),
+        var(--shadow-lg),
+        0 0 60px rgba(139, 92, 246, 0.2);
+}
